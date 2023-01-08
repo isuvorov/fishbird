@@ -1,20 +1,21 @@
 # Fishbird
 
+![Github Actions CI status](https://github.com/isuvorov/fishbird/actions/workflows/ci.yml/badge.svg)
+[![NPM version](https://img.shields.io/npm/v/fishbird.svg)](https://www.npmjs.com/package/fishbird)
+[![Coverage Status](https://coveralls.io/repos/isuvorov/fishbird/badge.svg?branch=master)](https://coveralls.io/r/isuvorov/fishbird?branch=master)
+
+
 <img src="https://isuvorov.github.io/fishbird/fishbird.png" align="right" 
      alt="Fishbird placeholder image by shutterstock" width="120" height="120">
 
 Fishbird is a simple, lightweight, and fast *Promise* utility library.
 
-## Features
-
-- **Small**. Less 1Kb (minified and gzipped). No dependencies.
-- **Fast**. Its 2 times faster than Bluebird by benchmarkes.
-- **ES modules** and **tree-shaking** support.
-- **TypeScript** friendly.
-- **Portable** Supports modern browsers, IE with Babel, Node.js and React Native.
-- **Compatible** with Bluebird API.
-
-## Usage
+- *Small*. Less 1Kb (minified and gzipped). No dependencies.
+- *Fast*. Its 2 times faster than Bluebird by benchmarkes.
+- *ES modules* and *tree-shaking* support.
+- *TypeScript* friendly.
+- *Portable* Supports modern browsers, IE with Babel, Node.js and React Native.
+- *Compatible* with Bluebird API.
 
 ```js
 import { map } from 'bluefish';
@@ -24,6 +25,7 @@ const res = map([1 ,2 , 3], async (id) => {
     return res.json();
 });
 ```
+
 
 ## Installation
 
@@ -38,6 +40,8 @@ yarn i fishblue
 ```bash
 pnpm i fishblue
 ```
+
+## Usage
 
 ## Inspired by  
 
