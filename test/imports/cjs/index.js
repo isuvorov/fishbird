@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
-const { delay } = require('fishblue');
-const { map } = require('fishblue/map');
-const { mapSeries } = require('fishblue/mapSeries');
+const { delay } = require('fishbird');
+const { map } = require('fishbird/map');
+const { mapSeries } = require('fishbird/mapSeries');
 
 async function main() {
   const input = [1, 2, 3];

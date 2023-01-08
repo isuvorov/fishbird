@@ -2,5 +2,8 @@
   "name": "import-test-cjs",
   "scripts": {
     "test": "node index.js"
+  },
+  "dependencies": {
+    "fishbird": "link../../../../../"
   }
 }

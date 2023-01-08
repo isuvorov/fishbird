@@ -9,3 +9,5 @@ export function mapSeries<IN, OUT>(
 ): Promise<OUT[]> {
   return map<IN, OUT>(arr, fn, { concurrency: 1 });
 }
+
+export default mapSeries;

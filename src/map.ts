@@ -3,11 +3,11 @@
  * code take from caolan/async
  */
 
-import { IterateFunction, MapOptions } from './types';
+import { IterateFunction, MapOptions, PromiseOrValue } from './types';
 
 export function map<IN, OUT>(
-  arr: (IN | Promise<IN>)[],
-  fn: IterateFunction<IN | Promise<IN>, OUT>,
+  arr: PromiseOrValue<IN>[],
+  fn?: IterateFunction<PromiseOrValue<IN>, OUT>,
   { concurrency = Infinity }: MapOptions = { concurrency: Infinity }
 ): Promise<OUT[]> {
   if (typeof concurrency !== 'number') {
@@ -16,6 +16,9 @@ export function map<IN, OUT>(
   if (!Array.isArray(arr)) {
     throw new TypeError(`arr must be collection, but got ${typeof arr}`);
   }
+
+  const fn2 = fn || ((item: PromiseOrValue<IN>): OUT => item as OUT);
+
   return new Promise((resolve, reject) => {
     let completed = 0;
     let started = 0;
@@ -25,7 +28,8 @@ export function map<IN, OUT>(
 
     function start(index: number) {
       const cur = arr[index];
-      Promise.resolve(fn.call(cur, cur, index, arr))
+      // @ts-ignore
+      Promise.resolve(fn2.call(cur, cur, index, arr))
         .then((result) => {
           running--;
           completed++;
@@ -58,6 +62,8 @@ export function map<IN, OUT>(
     replenish();
   });
 }
+
+export default map;
 
 // export function map(arr, fn, { concurrency = Infinity } = {}) {
 //   if (typeof concurrency !== 'number') {

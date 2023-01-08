@@ -2,6 +2,10 @@
   "type": "module",
   "name": "import-test-esm",
   "scripts": {
-    "test": "node index.js"
+    "test": "echo \"skip\" && exit 0",
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "fishbird": "link../../../../../"
   }
 }

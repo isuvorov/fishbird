@@ -1,9 +1,16 @@
 {
     "compilerOptions": {
-      "module": "commonjs",
-      "target": "es2015",
+      "lib": ["esnext"],
+      "module": "ESNext",
+      "moduleResolution": "NodeNext",
+      "esModuleInterop": true,
+      "target": "ES2021",
+
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
       "declaration": true,
       "sourceMap": true,
+
       "outDir": "./lib"
     },
     "include": [

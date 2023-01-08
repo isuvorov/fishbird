@@ -1,3 +1,4 @@
+/* eslint-disable prefer-promise-reject-errors */
 /*
 Based on When.js tests
 
@@ -86,7 +87,6 @@ describe('map – test', () => {
   });
 
   test('should reject when input contains rejection', async () => {
-    // eslint-disable-next-line prefer-promise-reject-errors
     const input = [Promise.resolve(1), Promise.reject(2), Promise.resolve(3)];
     const run = async () => {
       const results = await map(input, mapper);
@@ -132,9 +132,20 @@ describe('map – test with concurrency', () => {
     await expect(run).rejects.toThrow(TypeError);
   });
 
-  test('empty concurrency', async () => {
+  // test('empty mapper', async () => {
+  //   const input = [1, 2, 3];
+  //   const results = await map(input, undefined);
+  //   expect(results).toEqual([2, 4, 6]);
+  // });
+
+  test('empty options', async () => {
     const input = [1, 2, 3];
-    // @ts-expect-error
+    const results = await map(input, mapper);
+    expect(results).toEqual([2, 4, 6]);
+  });
+
+  test('empty option concurrency', async () => {
+    const input = [1, 2, 3];
     const results = await map(input, mapper, {});
     expect(results).toEqual([2, 4, 6]);
   });

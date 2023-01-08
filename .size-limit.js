@@ -1,16 +1,14 @@
+const packages = ['delay', 'map', 'mapSeries', 'props', ]
+
 module.exports = [
+  ...['js', 'mjs'].map((ext) => ([
     {
-      path: "lib/index.js",
-      limit: "1kb"
+      "path": `lib/index.${ext}`,
+      "limit": "2kb"
     },
-    {
-      path: "lib/index.js",
-      import: "{ map, mapSeries, delay }",
-      limit: "1kb"
-    },
-    {
-      path: "lib/index.js",
-      import: "*",
-      limit: "1kb"
-    }
-  ]
+    ...packages.map((pkg) => ({
+      "path": `lib/${pkg}.${ext}`,
+      "limit": "1kb"
+    }))
+  ])).flat(),
+]

@@ -10,12 +10,12 @@
 
 Fishbird is a simple, lightweight, and fast *Promise* utility library.
 
-- *Small*. Less 1Kb (minified and gzipped). No dependencies.
-- *Fast*. Its 2 times faster than Bluebird by benchmarkes.
-- *ES modules* and *tree-shaking* support.
-- *TypeScript* friendly.
-- *Portable* Supports modern browsers, IE with Babel, Node.js and React Native.
-- *Compatible* with Bluebird API.
+- **Small**. Less 1Kb (minified and gzipped). No dependencies.
+- **Fast**. Its 2 times faster than Bluebird by benchmarkes.
+- **ES modules** and **tree-shaking** support.
+- **TypeScript** friendly.
+- **Portable** Supports modern browsers, IE with Babel, Node.js and React Native.
+- **Compatible** with Bluebird API.
 
 ```js
 import { map } from 'bluefish';
@@ -30,15 +30,15 @@ const res = map([1 ,2 , 3], async (id) => {
 ## Installation
 
 ```bash
-npm i fishblue
+npm i fishbird
 ```
 
 ```bash
-yarn i fishblue
+yarn i fishbird
 ```
 
 ```bash
-pnpm i fishblue
+pnpm i fishbird
 ```
 
 ## Usage
