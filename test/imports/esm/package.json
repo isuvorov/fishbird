@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "name": "import-test-esm",
+  "scripts": {
+    "test": "node index.js"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "name": "fishblue",
+  "version": "0.0.0",
+  "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
+  "keywords": [
+    "promise",
+    "performance",
+    "async",
+    "await",
+    "deferred",
+    "deferreds",
+    "flow control",
+    "dsl",
+    "fluent interface",
+    "typescript",
+    "esm",
+    "bluebird"
+  ],
+  "author": "Igor Suvorov <hi@isuvorov.com>",
+  "homepage": "https://github.com/isuvorov/fishblue",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/isuvorov/fishblue.git"
+  },
+  "bugs": {
+    "url": "http://github.com/isuvorov/fishblue/issues"
+  },
+  "license": "MIT",
+
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./*": {
+      "import": "./lib/*.mjs",
+      "require": "./lib/*.js"
+    }
+  },
+  "scripts": {
+    "test": "npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
+    "test:eslint": "eslint src",
+    "test:size-limit": "size-limit",
+    "test:eslint:fix": "eslint src --fix",
+    "test:jest": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:imports": "cd test/imports/cjs && npm test && cd ../../imports/esm && npm test",
+    "clean": "rm -rf ./lib/* && rm -rf ./coverage",
+    "build": "npm run clean && tsup",
+    "release": "npm test && npm run clean && npm run build && npm version minor && npm publish"
+  },
+  "devDependencies": {
+    "@lskjs/eslint-config": "2.13.0",
+    "@size-limit/preset-small-lib": "^8.1.0",
+    "@types/jest": "29.2.5",
+    "@types/node": "18.11.18",
+    "dual-publish": "^3.0.1",
+    "jest": "29.3.1",
+    "rimraf": "3.0.2",
+    "size-limit": "^8.1.0",
+    "ts-jest": "29.0.3",
+    "tsup": "^6.5.0",
+    "typescript": "4.9.4"
+  }
+}

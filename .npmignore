@@ -1,0 +1,7 @@
+test/
+coverage/
+**/*.test.*
+tsconfig.json
+
+global.d.ts
+__snapshots__
