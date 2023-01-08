@@ -7,12 +7,12 @@ Fishbird is a simple, lightweight, and fast *Promise* utility library.
 
 ## Features
 
-- *Small*. Less 1Kb (minified and gzipped). No dependencies.
-- *Fast*. Its 2 times faster than Bluebird by benchmarkes.
-- *ES modules* and *tree-shaking* support.
-- *TypeScript* friendly.
-- *Portable* Supports modern browsers, IE with Babel, Node.js and React Native.
-- *Compatible* with Bluebird API.
+- **Small**. Less 1Kb (minified and gzipped). No dependencies.
+- **Fast**. Its 2 times faster than Bluebird by benchmarkes.
+- **ES modules** and **tree-shaking** support.
+- **TypeScript** friendly.
+- **Portable** Supports modern browsers, IE with Babel, Node.js and React Native.
+- **Compatible** with Bluebird API.
 
 ## Usage
 
