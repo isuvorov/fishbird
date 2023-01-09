@@ -1,12 +1,5 @@
 *
 !package.json
-!lib
 !lib/*
-
-test/
-coverage/
-**/*.test.*
-tsconfig.json
-
-global.d.ts
-__snapshots__
+!README.md
+!LICENCE
