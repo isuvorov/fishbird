@@ -54,7 +54,7 @@
     "build": "          tsup",
     "build:tsc": "      npm run clean && tsc",
     "prerelease": "     npm run clean && npm run build && npm run test",
-    "release": "        npm version minor -m \"chore(release): %s\"              && pnpm publish --no-git-checks --dry-run",
+    "release": "        npm version minor -m \"chore(release): v%s\"             && pnpm publish",
     "prerelease:ci": "  npm run clean && npm run build",
     "release:ci": "     npm version minor --no-commit-hooks --no-git-tag-version && pnpm publish --no-git-checks"
   },

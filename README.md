@@ -20,14 +20,13 @@ Fishbird is a simple, lightweight, and fast *Promise* utility library.
 - **Compatible** with Bluebird API.
 
 ```js
-import { map } from 'bluefish';
+import { map } from 'fishbird';
 
 const res = map([1 ,2 , 3], async (id) => {
     const res = await fetch(id);
     return res.json();
 });
 ```
-
 
 ## Installation
 
