@@ -1,5 +1,6 @@
 *
 !package.json
+!lib
 !lib/*
 
 test/
