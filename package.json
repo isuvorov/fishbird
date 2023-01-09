@@ -1,6 +1,6 @@
 {
   "name": "fishbird",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
   "author": "Igor Suvorov <hi@isuvorov.com>",
   "license": "MIT",
@@ -53,10 +53,8 @@
     "clean": "          rm -rf ./lib/* && rm -rf ./coverage && rm -rf ./package",
     "build": "          tsup",
     "build:tsc": "      npm run clean && tsc",
-    "prerelease": "     npm run clean && npm run build && npm run test",
-    "release": "        npm version minor -m \"chore(release): v%s\"             && pnpm publish",
-    "prerelease:ci": "  npm run clean && npm run build",
-    "release:ci": "     npm version minor --no-commit-hooks --no-git-tag-version && pnpm publish --no-git-checks"
+    "release": "        npm run clean && npm run build && npm run test && npm version minor -m \"chore(release): v%s\"             && pnpm publish",
+    "release:ci": "     npm run clean && npm run build &&                 npm version minor --no-commit-hooks --no-git-tag-version && pnpm publish --no-git-checks"
   },
   "devDependencies": {
     "@lskjs/eslint-config": "2.14.0",
