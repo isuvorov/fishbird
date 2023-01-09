@@ -79,7 +79,6 @@
   },
   "clean-publish": {
     "packageManager": "pnpm",
-    "withoutPublish": true,
     "tempDir": "package",
     "files": [
       "!(README.md|LICENCE|lib|lib/**)"

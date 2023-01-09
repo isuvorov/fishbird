@@ -4,3 +4,4 @@ coverage
 dist
 lib
 __*
+package
