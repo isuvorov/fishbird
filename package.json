@@ -54,8 +54,8 @@
     "build": "          tsup",
     "build:tsc": "      npm run clean && tsc",
     "publish": "clean-publish",
-    "release": "        npm run clean && npm run build && npm run test && npm version minor -m \"chore(release): v%s\"             && pnpm publish",
-    "release:ci": "     npm run clean && npm run build &&                 npm version minor --no-commit-hooks --no-git-tag-version && pnpm publish --no-git-checks"
+    "release": "        npm run clean && npm run build && npm run test && npm version minor -m \"chore(release): v%s\"             && clean-publish",
+    "release:ci": "     npm run clean && npm run build &&                 npm version minor --no-commit-hooks --no-git-tag-version && clean-publish -- --no-git-checks"
   },
   "devDependencies": {
     "@lskjs/eslint-config": "2.14.0",
