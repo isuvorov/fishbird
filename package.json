@@ -1,6 +1,6 @@
 {
   "name": "fishbird",
-  "version": "0.1.0",
+  "version": "0.7.0",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
   "author": "Igor Suvorov <hi@isuvorov.com>",
   "license": "MIT",
@@ -42,26 +42,33 @@
     "#common/*": "./lib/*.cjs"
   },
   "scripts": {
-    "test": "npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
-    "test:watch": "jest --watch",
-    "test:eslint": "eslint src",
+    "test": "           npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
+    "test:watch": "     jest --watch",
+    "test:eslint": "    eslint src",
     "test:size-limit": "size-limit",
-    "test:jest": "jest --coverage",
-    "test:imports": "cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
-    "clean": "rm -rf ./lib/* && rm -rf ./coverage",
-    "build": "tsup",
-    "build:tsc": "npm run clean && tsc",
-    "prepublishOnly": "npm run clean && npm run build && npm test && npm version minor",
-    "publish": "clean-publish"
+    "test:jest": "      jest --coverage",
+    "test:benchmark": " node test/benchmark.js",
+    "test:imports2": "  cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
+    "test:imports": "   echo ok",
+    "clean": "          rm -rf ./lib/* && rm -rf ./coverage && rm -rf ./package",
+    "build": "          tsup",
+    "build:tsc": "      npm run clean && tsc",
+    "prerelease": "     npm run clean && npm run build && npm run test",
+    "release": "        npm version minor -m \"chore(release): %s\"              && pnpm publish --no-git-checks --dry-run",
+    "prerelease:ci": "  npm run clean && npm run build",
+    "release:ci": "     npm version minor --no-commit-hooks --no-git-tag-version && pnpm publish --no-git-checks"
   },
   "devDependencies": {
     "@lskjs/eslint-config": "2.13.0",
     "@size-limit/preset-small-lib": "^8.1.0",
     "@types/jest": "29.2.5",
     "@types/node": "18.11.18",
+    "benchmark": "^2.1.4",
+    "bluebird": "^3.7.2",
     "clean-publish": "^4.0.2",
     "dual-publish": "^3.0.1",
     "jest": "29.3.1",
+    "picocolors": "^1.0.0",
     "rimraf": "3.0.2",
     "size-limit": "^8.1.0",
     "ts-jest": "29.0.3",
@@ -72,6 +79,11 @@
     "extends": "@lskjs/eslint-config"
   },
   "clean-publish": {
-    "files": ["!(README.md|LICENCE|lib|lib/**)"]
+    "packageManager": "pnpm",
+    "withoutPublish": true,
+    "tempDir": "package",
+    "files": [
+      "!(README.md|LICENCE|lib|lib/**)"
+    ]
   }
 }

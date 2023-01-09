@@ -1,9 +1,11 @@
 # Fishbird
 
-![Github Actions CI status](https://github.com/isuvorov/fishbird/actions/workflows/ci.yml/badge.svg)
-[![NPM version](https://img.shields.io/npm/v/fishbird.svg)](https://www.npmjs.com/package/fishbird)
-[![Coverage Status](https://coveralls.io/repos/isuvorov/fishbird/badge.svg?branch=master)](https://coveralls.io/r/isuvorov/fishbird?branch=master)
-
+[![NPM version](https://badgen.net/npm/v/fishbird)](https://www.npmjs.com/package/fishbird)
+[![Have TypeScript types](https://badgen.net/npm/types/fishbird)](https://www.npmjs.com/package/fishbird)
+[![Tests](https://github.com/isuvorov/fishbird/actions/workflows/npm-test-publish.yml/badge.svg)](https://github.com/isuvorov/fishbird/actions/workflows/npm-publish.yml)
+[![NPM Package size](https://badgen.net/bundlephobia/minzip/fishbird)](https://bundlephobia.com/result?p=fishbird)
+[![License](https://badgen.net//github/license/isuvorov/fishbird)](https://github.com/isuvorov/fishbird/blob/master/LICENSE)
+[![Ask me in Telegram](https://img.shields.io/badge/Ask%20me%20in-Telegram-brightblue.svg)](https://t.me/isuvorov)
 
 <img src="https://isuvorov.github.io/fishbird/fishbird.png" align="right" 
      alt="Fishbird placeholder image by shutterstock" width="120" height="120">
