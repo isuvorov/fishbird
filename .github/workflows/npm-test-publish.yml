@@ -7,30 +7,30 @@ on:
     types: [ created ]
 
 jobs:
-  # test:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [19, 16, 14]
-  #   name: Node.js ${{ matrix.node-version }} test
-  #   steps:
-  #     - name: Git checkout
-  #       uses: actions/checkout@v3
-  #     - name: Setup pnpm
-  #       uses: pnpm/action-setup@v2
-  #       with:
-  #         version: latest
-  #     - name: Install Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #         cache: 'pnpm'
-  #     - name: Install dependencies
-  #       run: pnpm install --frozen-lockfile --strict-peer-dependencies
-  #     - run: pnpm build
-  #     - run: pnpm test
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [19, 16, 14]
+    name: Node.js ${{ matrix.node-version }} test
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      - name: Install Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --strict-peer-dependencies
+      - run: pnpm build
+      - run: pnpm test
   publish:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     if: ${{ !contains(github.event.head_commit.message, 'chore(release)') }}
     strategy:
