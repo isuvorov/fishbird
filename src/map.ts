@@ -16,9 +16,7 @@ export function map<IN, OUT>(
   if (!Array.isArray(arr)) {
     throw new TypeError(`arr must be collection, but got ${typeof arr}`);
   }
-
   const fn2 = fn || ((item: PromiseOrValue<IN>): OUT => item as OUT);
-
   return new Promise((resolve, reject) => {
     let completed = 0;
     let started = 0;
