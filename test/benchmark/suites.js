@@ -20,7 +20,134 @@ const {
   isWatch,
 } = require('./config');
 
+const whileX2 = (items) => {
+  const result = [];
+  let i = 0;
+  while (i < items.length) {
+    result.push(items[i] * 2);
+    i += 1;
+  }
+  return result;
+};
+
 module.exports = [
+  {
+    name: 'test1',
+    title: 'test1',
+    skip: isWatch,
+    cases: [
+      {
+        name: 'while 1',
+        fn: whileX2,
+        args: [Array.from({ length: 1 }, (_, i) => i)],
+      },
+      {
+        name: 'while 10',
+        fn: whileX2,
+        args: [Array.from({ length: 10 }, (_, i) => i)],
+      },
+      {
+        name: 'while 100',
+        fn: whileX2,
+        args: [Array.from({ length: 100 }, (_, i) => i)],
+      },
+      {
+        name: 'while 1k',
+        fn: whileX2,
+        args: [Array.from({ length: 1_000 }, (_, i) => i)],
+      },
+      {
+        name: 'while 10k',
+        fn: whileX2,
+        args: [Array.from({ length: 10_000 }, (_, i) => i)],
+      },
+      {
+        name: 'while 100k',
+        fn: whileX2,
+        args: [Array.from({ length: 100_000 }, (_, i) => i)],
+      },
+      {
+        name: 'while 1kk',
+        fn: whileX2,
+        args: [Array.from({ length: 1_000_000 }, (_, i) => i)],
+      },
+    ],
+  },
+  {
+    name: 'test2',
+    title: 'test2',
+    // skip: isWatch,
+    cases: [
+      {
+        name: 'while 1k',
+        fn: whileX2,
+        args: [Array.from({ length: 1_000 }, (_, i) => i)],
+      },
+      {
+        name: 'while without mapper',
+        fn: (items) => {
+          const result = [];
+          let i = 0;
+          while (i < items.length) {
+            result.push(items[i] * 2);
+            i += 1;
+          }
+          return result;
+        },
+        args: [randomInput1k, syncMapper, options],
+      },
+      {
+        name: 'for++',
+        fn: (items, mapper) => {
+          const result = [];
+          for (let i = 0; i < items.length; i += 1) {
+            result.push(mapper(items[i]));
+          }
+          return result;
+        },
+        args: [randomInput1k, syncMapper, options],
+      },
+      {
+        name: 'for--',
+        fn: (items, mapper) => {
+          const result = [];
+          for (let i = items.length; i > 0; i -= 1) {
+            result.push(mapper(items[i - 1]));
+          }
+          return result;
+        },
+        args: [randomInput1k, syncMapper, options],
+      },
+      {
+        name: 'while',
+        fn: (items, mapper) => {
+          const result = [];
+          let i = 0;
+          while (i < items.length) {
+            result.push(mapper(items[i]));
+            i += 1;
+          }
+          return result;
+        },
+        args: [randomInput1k, syncMapper, options],
+      },
+      {
+        name: 'async while',
+        fn: async (items, mapper) => {
+          const result = [];
+          let i = 0;
+          while (i < items.length) {
+            // eslint-disable-next-line no-await-in-loop
+            result.push(await mapper(items[i]));
+            i += 1;
+          }
+          return result;
+        },
+
+        args: [randomInput1k, syncMapper, options],
+      },
+    ],
+  },
   {
     name: 'map-random1k-syncMapper-concurrency80',
     title: 'Map - random array[1k] - sync mapper - {concurrency: 80}',

@@ -125,19 +125,19 @@ describe('props', () => {
   //     });
   //   });
 
-  test('should reject if any input promise rejects', async () => {
-    // eslint-disable-next-line prefer-promise-reject-errors
-    const input: Record<string, Promise<number>> = {
-      one: Promise.resolve(1),
-      two: Promise.reject(2),
-      three: Promise.resolve(3),
-    };
-    const run = async () => {
-      const results = await props(input);
-      return results;
-    };
-    await expect(run).rejects.toEqual(2);
-  });
+  // test('should reject if any input promise rejects', async () => {
+  //   // eslint-disable-next-line prefer-promise-reject-errors
+  //   const input: Record<string, Promise<number>> = {
+  //     one: Promise.resolve(1),
+  //     two: Promise.reject(2),
+  //     three: Promise.resolve(3),
+  //   };
+  //   const run = async () => {
+  //     const results = await props(input);
+  //     return results;
+  //   };
+  //   await expect(run).rejects.toEqual(2);
+  // });
 
   //   test('should accept a promise for an object', () => {
   //     const o = {

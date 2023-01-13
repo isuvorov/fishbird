@@ -1,12 +1,12 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable import/prefer-default-export */
 import { map } from './map';
-import { IterateFunction, MapOptions, PromiseOrValue } from './types';
-
-type IterableCollection<T> =
-  | Record<string, PromiseOrValue<T>>
-  | Map<string, PromiseOrValue<T>>
-  | Array<PromiseOrValue<T>>;
+import {
+  IterableCollection,
+  IterateFunction,
+  MapOptions,
+  PromiseOrValue,
+} from './types';
 
 export async function props<IN, OUT>(
   obj: IterableCollection<IN>,
