@@ -8,7 +8,7 @@ import { IterateFunction, MapOptions, PromiseOrValue } from './types';
 export function map<IN, OUT>(
   arr: PromiseOrValue<IN>[],
   fn?: IterateFunction<PromiseOrValue<IN>, OUT>,
-  { concurrency = Infinity }: MapOptions = { concurrency: Infinity }
+  { concurrency = Infinity }: MapOptions = { concurrency: Infinity },
 ): Promise<OUT[]> {
   if (typeof concurrency !== 'number') {
     throw new TypeError(`${String(concurrency)} is not a number`);

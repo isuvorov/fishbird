@@ -2,8 +2,125 @@
   "name": "fishbird",
   "version": "0.20.0",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
-  "author": "Igor Suvorov <hi@isuvorov.com>",
+  "author": "Igor Suvorov <hi@isuvorov.com> (https://github.com/isuvorov)",
+  "private": false,
+  "scripts": {
+    "dev": "            lsk run dev",
+    "build": "          lsk run build",
+    "test": "           lsk run test",
+    "prepack": "        lsk run prepack",
+    "release": "        lsk run release",
+    "release:ci": "     lsk run build &&  npm version minor --no-commit-hooks --no-git-tag-version && clean-publish -- --no-git-checks",
+    "test2": "           npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
+    "test:benchmark": "      cd test/benchmark && npm run test",
+    "test:benchmark:watch": "cd test/benchmark && npm run dev",
+    "test:imports": "   echo ok",
+    "test:imports2": "  cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
+    "test:watch": "     lsk run test --watch"
+  },
+  "devDependencies": {
+    "@lskjs/cli-scripts": "3.0.0-alpha.32",
+    "@lskjs/cli-utils": "3.0.0-alpha.32",
+    "@lskjs/eslint-config": "3.0.0-alpha.32",
+    "@lskjs/jest-config": "3.0.0-alpha.32",
+    "@lskjs/tsconfig": "^3.0.0-alpha.30",
+    "@size-limit/preset-small-lib": "8.1.2",
+    "@types/jest": "29.2.6",
+    "@types/node": "18.11.18",
+    "clean-publish": "4.1.1",
+    "jest": "29.3.1",
+    "lsk": "3.0.0-alpha.32",
+    "size-limit": "8.1.2",
+    "ts-jest": "29.0.5",
+    "tsup": "6.5.0",
+    "typescript": "4.9.4"
+  },
+  "//": "///////////========================/////////========================/////////========================/////////",
+  "prettier": "@lskjs/eslint-config/prettier",
+  "eslintConfig": {
+    "extends": "@lskjs/eslint-config"
+  },
+  "jest": {
+    "preset": "@lskjs/jest-config"
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENCE"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./*": {
+      "import": "./lib/*.mjs",
+      "types": "./lib/*.d.ts",
+      "default": "./lib/*.js"
+    }
+  },
+  "size-limit": [
+    {
+      "path": "lib/index.js",
+      "limit": "2kb"
+    },
+    {
+      "path": "lib/index.mjs",
+      "limit": "2kb"
+    },
+    {
+      "path": "lib/delay.js",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/delay.mjs",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/map.js",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/map.mjs",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/mapSeries.js",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/mapSeries.mjs",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/props.js",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/props.mjs",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/types.js",
+      "limit": "1kb"
+    },
+    {
+      "path": "lib/types.mjs",
+      "limit": "1kb"
+    }
+  ],
+  "///": "//////////========================/////////========================/////////========================/////////",
+  "repository": "https://github.com/isuvorov/fishbird",
+  "homepage": "https://github.com/isuvorov/fishbird",
+  "bugs": "https://github.com/isuvorov/fishbird/issues",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [
     "promise",
     "performance",
@@ -18,72 +135,5 @@
     "esm",
     "bluebird"
   ],
-  "homepage": "https://github.com/isuvorov/fishbird",
-  "repository": "https://github.com/isuvorov/fishbird",
-  "bugs": "http://github.com/isuvorov/fishbird/issues",
-  "_type": "module",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "exports": {
-    ".": {
-      "default": "./lib/index.js",
-      "require": "./lib/index.js",
-      "import": "./lib/index.mjs",
-      "node": "./lib/index.js"
-    },
-    "./*": {
-      "default": "./lib/*.js",
-      "require": "./lib/*.js",
-      "import": "./lib/*.mjs",
-      "node": "./lib/*.js"
-    }
-  },
-  "imports": {
-    "#common/*": "./lib/*.cjs"
-  },
-  "scripts": {
-    "test": "           npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
-    "test:watch": "     jest --watch",
-    "test:eslint": "    eslint src",
-    "test:size-limit": "size-limit",
-    "test:jest": "      jest --coverage",
-    "test:benchmark": "      cd test/benchmark && npm run test",
-    "test:benchmark:watch": "cd test/benchmark && npm run dev",
-    "test:imports2": "  cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
-    "test:imports": "   echo ok",
-    "clean": "          rm -rf ./lib/* && rm -rf ./coverage && rm -rf ./package",
-    "dev": "            tsup --watch",
-    "build": "          tsup",
-    "build:tsc": "      npm run clean && tsc",
-    "publish": "        clean-publish",
-    "release": "        npm run clean && npm run build && npm run test && npm version minor -m \"chore(release): v%s\"             && clean-publish",
-    "release:ci": "     npm run clean && npm run build &&                 npm version minor --no-commit-hooks --no-git-tag-version && clean-publish -- --no-git-checks"
-  },
-  "devDependencies": {
-    "@lskjs/eslint-config": "2.19.0",
-    "@size-limit/preset-small-lib": "8.1.1",
-    "@types/jest": "29.2.5",
-    "@types/node": "18.11.18",
-    "clean-publish": "4.1.1",
-    "jest": "29.3.1",
-    "size-limit": "8.1.1",
-    "ts-jest": "29.0.4",
-    "tsup": "6.5.0",
-    "typescript": "4.9.4"
-  },
-  "eslintConfig": {
-    "extends": "@lskjs/eslint-config"
-  },
-  "files": [
-    "lib",
-    "README.md",
-    "LICENCE"
-  ],
-  "clean-publish": {
-    "packageManager": "pnpm",
-    "tempDir": "package",
-    "_files": [
-      "!(README.md|LICENCE|lib|lib/**)"
-    ]
-  }
+  "////": "/////////========================/////////========================/////////========================/////////"
 }

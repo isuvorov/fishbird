@@ -1,35 +1,3 @@
 {
-    "compilerOptions": {
-      "lib": ["esnext"],
-      "module": "ESNext",
-      "moduleResolution": "NodeNext",
-      "esModuleInterop": true,
-      "target": "ES2021",
-
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "declaration": true,
-      "sourceMap": true,
-
-      "outDir": "./lib"
-    },
-    "include": [
-      "src/**/*"
-    ]
-  }
-
-// {
-//     "compilerOptions": {
-//       "target": "es2018",
-//       "module": "esnext",
-//       "moduleResolution": "node",
-//       "esModuleInterop": true,
-//       "skipLibCheck": true,
-//       "allowJs": true,
-//       "strict": true,
-//       "noEmit": true
-//     },
-//     "exclude": [
-//       "**/errors.ts"
-//     ]
-//   }
+  "extends": "@lskjs/tsconfig/strict/tsconfig.json"
+}
