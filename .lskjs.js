@@ -1,5 +1,5 @@
-module.exports = {
-  pathexec: process.env.USER === 'isuvorov' ? {
+module.exports = process.env.USER === 'isuvorov' ? {
+  pathexec: {
     paths: [__dirname + '/../lskjs/cli/cli-scripts']
-  } : {}
-}
+  }
+} : {}
