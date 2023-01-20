@@ -65,51 +65,43 @@
   "size-limit": [
     {
       "path": "lib/index.js",
-      "limit": "2kb"
+      "limit": "1kb"
     },
     {
       "path": "lib/index.mjs",
-      "limit": "2kb"
+      "limit": "1kb"
     },
     {
       "path": "lib/delay.js",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/delay.mjs",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/map.js",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/map.mjs",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/mapSeries.js",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/mapSeries.mjs",
-      "limit": "1kb"
+      "limit": "0.6kb"
     },
     {
       "path": "lib/props.js",
-      "limit": "1kb"
+      "limit": "0.7kb"
     },
     {
       "path": "lib/props.mjs",
-      "limit": "1kb"
-    },
-    {
-      "path": "lib/types.js",
-      "limit": "1kb"
-    },
-    {
-      "path": "lib/types.mjs",
-      "limit": "1kb"
+      "limit": "0.6kb"
     }
   ],
   "///": "//////////========================/////////========================/////////========================/////////",
