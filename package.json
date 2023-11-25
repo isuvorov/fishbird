@@ -45,6 +45,7 @@
   },
   "files": [
     "lib",
+    "cjs",
     "README.md",
     "LICENCE"
   ],

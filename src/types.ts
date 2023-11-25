@@ -1,17 +1,15 @@
-// export type PromiseOrValue<T> = T | Promise<T>;
-export type PromiseOrValue<T> = PromiseLike<T>;
+export type PromiseOrValue<T> = T | Promise<T>;
 
-export type Iterator<IN, OUT, COLLECTION = IN[]> = (
-  item: PromiseOrValue<IN>,
+export type IteratorFn<IN, OUT, COLLECTION = IN> = (
+  item: Awaited<IN>,
   index: number,
-  array: COLLECTION,
-) => PromiseOrValue<OUT>;
+  collection: COLLECTION,
+) => OUT;
 
 export interface Options {
   concurrency?: number;
 }
 
-export interface MapCollection<T> extends Array<T> {}
-
-export interface PropsRecordCollection<T> extends Record<string, T> {}
-export interface PropsMapCollection<T> extends Map<string, T> {}
+export type ArrayCollection<T> = T[];
+export interface RecordCollection<T> extends Record<string, T> {}
+export interface MapCollection<T> extends Map<string, T> {}

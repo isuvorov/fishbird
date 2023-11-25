@@ -1,10 +1,9 @@
 import { map } from './map.js';
-import type { Iterator, MapCollection, PromiseOrValue } from './types.js';
 
-export function mapSeries<IN, OUT>(
-  arr: MapCollection<PromiseOrValue<IN>>,
-  fn?: Iterator<IN, OUT, MapCollection<PromiseOrValue<IN>>>,
-): Promise<MapCollection<OUT>> {
+export function mapSeries<IN, OUT = Awaited<IN>>(
+  arr: IN[],
+  fn?: (item: Awaited<IN>, index?: number, array?: IN[]) => OUT,
+): Promise<Awaited<OUT>[]> {
   return map<IN, OUT>(arr, fn, { concurrency: 1 });
 }
 
