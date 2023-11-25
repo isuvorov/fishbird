@@ -1,3 +1,9 @@
 {
-  "extends": "@lskjs/tsconfig/strict/tsconfig.json"
+  "compilerOptions": {
+    "target": "ESNext",
+    "lib": ["esnext"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true
+  }
 }

@@ -1,11 +1,11 @@
-import { delay } from './delay';
-import { map } from './map';
-import { mapSeries } from './mapSeries';
-import { props } from './props';
+import { delay } from './delay.js';
+import { map } from './map.js';
+import { mapSeries } from './mapSeries.js';
+import { props } from './props.js';
 
-export * from './delay';
-export * from './map';
-export * from './mapSeries';
-export * from './props';
+export * from './delay.js';
+export * from './map.js';
+export * from './mapSeries.js';
+export * from './props.js';
 
 export default { delay, map, mapSeries, props };

@@ -1,5 +1,6 @@
 .cache
 .idea
+.vscode
 .ssh
 lerna-debug.log
 
@@ -9,6 +10,7 @@ lerna-debug.log
 **/.DS_Store
 **/node_modules
 **/lib
+**/cjs
 **/.env*
 **/!.env.example.*
 **/__*

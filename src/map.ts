@@ -3,13 +3,13 @@
  * code take from caolan/async
  */
 
-import { IterateFunction, MapOptions, PromiseOrValue } from './types';
+import type { Iterator, MapCollection, Options, PromiseOrValue } from './types.js';
 
 export function map<IN, OUT>(
-  arr: PromiseOrValue<IN>[],
-  fn?: IterateFunction<PromiseOrValue<IN>, OUT>,
-  { concurrency = Infinity }: MapOptions = { concurrency: Infinity },
-): Promise<OUT[]> {
+  arr: MapCollection<PromiseOrValue<IN>>,
+  fn?: Iterator<IN, OUT, MapCollection<PromiseOrValue<IN>>>,
+  { concurrency = Infinity }: Options = { concurrency: Infinity },
+): Promise<MapCollection<OUT>> {
   if (typeof concurrency !== 'number') {
     throw new TypeError(`${String(concurrency)} is not a number`);
   }
