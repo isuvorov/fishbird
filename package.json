@@ -1,6 +1,6 @@
 {
   "name": "fishbird",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
   "author": "Igor Suvorov <hi@isuvorov.com> (https://github.com/isuvorov)",
   "private": false,

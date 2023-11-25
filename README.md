@@ -8,7 +8,7 @@
 [![Ask me in Telegram](https://img.shields.io/badge/Ask%20me%20in-Telegram-brightblue.svg)](https://t.me/isuvorov)
 <!-- [![NPM Package size](https://badgen.net/bundlephobia/minzip/fishbird)](https://bundlephobia.com/result?p=fishbird) -->
 
-<img src="https://isuvorov.github.io/fishbird/fishbird.png" align="right" width="120" height="120">
+<img src="https://isuvorov.github.io/fishbird/logo.png" align="right" width="120" height="120">
 
 Fishbird is a simple, lightweight, and fast *Promise* utility library.
 
