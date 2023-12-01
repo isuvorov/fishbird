@@ -1,23 +1,28 @@
 {
   "name": "fishbird",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
   "author": "Igor Suvorov <hi@isuvorov.com> (https://github.com/isuvorov)",
+  "type": "commonjs",
   "private": false,
   "scripts": {
-    "dev": "            lsk run dev",
-    "build": "          lsk run build",
-    "_test": "          lsk run test",
-    "test": "           uvu -r tsm tests",
-    "prepack": "        lsk run prepack",
-    "release": "        lsk run release",
-    "release:ci": "     lsk run build &&  npm version minor --no-commit-hooks --no-git-tag-version && clean-publish -- --no-git-checks",
-    "test2": "           npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
-    "test:benchmark": "      cd test/benchmark && npm run test",
-    "test:benchmark:watch": "cd test/benchmark && npm run dev",
-    "test:imports": "   echo ok",
-    "test:imports2": "  cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
-    "test:watch": "     lsk run test --watch"
+    "start": "          ycmd start",
+    "dev": "            ycmd dev",
+    "build": "          ycmd build",
+    "test": "           ycmd test",
+    "prepare": "        ycmd build --prod && ./scripts/rename-dts.js",
+    "prepack": "        ycmd prepack",
+    "release": "        ycmd release",
+    "release2": "       ycmd version && ycmd publish",
+    "_test": "           uvu -r tsm tests",
+    "_prepack": "        lsk run prepack",
+    "_release:ci": "     lsk run build &&  npm version minor --no-commit-hooks --no-git-tag-version && clean-publish -- --no-git-checks",
+    "_test2": "           npm run test:jest && npm run test:eslint && npm run test:size-limit && npm run test:imports",
+    "_test:benchmark": "      cd test/benchmark && npm run test",
+    "_test:benchmark:watch": "cd test/benchmark && npm run dev",
+    "_test:imports": "   echo ok",
+    "_test:imports2": "  cd test/imports/esm && npm run test && cd ../../.. && cd test/imports/cjs && npm run test",
+    "_test:watch": "     lsk run test --watch"
   },
   "devDependencies": {
     "@lskjs/cli-scripts": "^3.19.0",
@@ -26,22 +31,24 @@
     "@lskjs/tsconfig": "^3.18.0",
     "@size-limit/preset-small-lib": "^11.0.0",
     "@types/node": "^20.10.0",
+    "@ycmd/commands": "^0.8.0",
     "clean-publish": "^4.2.0",
     "lsk": "^3.19.0",
     "size-limit": "^11.0.0",
-    "ts-jest": "^29.1.1",
     "tsm": "^2.3.0",
     "tsup": "8.0.1",
     "typescript": "5.3.2",
-    "uvu": "^0.5.6"
+    "glob": "^10.3.10",
+    "uvu": "^0.5.6",
+    "ycmd": "^0.8.0"
   },
   "//": "///////////========================/////////========================/////////========================/////////",
   "prettier": "@lskjs/eslint-config/prettier",
   "eslintConfig": {
     "extends": "@lskjs/eslint-config"
   },
-  "jest": {
-    "preset": "@lskjs/jest-config"
+  "ycmd": {
+    "extends": "@lskjs/ycmd-config"
   },
   "files": [
     "lib",
@@ -49,8 +56,8 @@
     "README.md",
     "LICENCE"
   ],
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "cjs/index.js",
+  "types": "cjs/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.js",
