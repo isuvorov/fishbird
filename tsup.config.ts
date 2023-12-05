@@ -1,1 +1,1 @@
-export { default } from '@ycmd/commands/presets/tsup.config';
+export { default } from '@lsk4/tsup-config';

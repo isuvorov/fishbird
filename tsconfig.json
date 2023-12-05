@@ -1,9 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["esnext"],
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "strict": true
-  }
+  "extends": "@lsk4/tsconfig"
 }

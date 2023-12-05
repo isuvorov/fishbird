@@ -6,7 +6,7 @@ export async function filter<IN>(
 ): Promise<Awaited<IN>[]> {
   const arr2 = await map(arr, async (i) => ({
     i,
-    f: filterFn(i),
+    f: await filterFn(i),
   }));
   return arr2.filter((i) => i.f).map((i) => i.i);
 }

@@ -1,16 +1,15 @@
 {
   "name": "fishbird",
-  "version": "1.1.1-alpha.0",
+  "version": "1.1.8",
   "description": "Fishbird is a simple, lightweight, and fast Promise utility library",
   "author": "Igor Suvorov <hi@isuvorov.com> (https://github.com/isuvorov)",
-  "type": "commonjs",
   "private": false,
   "scripts": {
     "start": "          ycmd start",
     "dev": "            ycmd dev",
     "build": "          ycmd build",
     "test": "           ycmd test",
-    "prepare": "        ycmd build --prod && ./scripts/rename-dts.js",
+    "prepublishOnly": " ycmd build --prod --clean",
     "prepack": "        ycmd prepack",
     "release": "        ycmd release",
     "release2": "       ycmd version && ycmd publish",
@@ -25,22 +24,13 @@
     "_test:watch": "     lsk run test --watch"
   },
   "devDependencies": {
-    "@lskjs/cli-scripts": "^3.19.0",
-    "@lskjs/cli-utils": "^3.18.0",
-    "@lskjs/eslint-config": "^3.18.0",
-    "@lskjs/tsconfig": "^3.18.0",
-    "@size-limit/preset-small-lib": "^11.0.0",
-    "@types/node": "^20.10.0",
-    "@ycmd/commands": "^0.8.0",
-    "clean-publish": "^4.2.0",
-    "lsk": "^3.19.0",
-    "size-limit": "^11.0.0",
-    "tsm": "^2.3.0",
-    "tsup": "8.0.1",
+    "@lsk4/eslint-config": "^4.1.0",
+    "@lsk4/tsconfig": "^4.1.0",
+    "@lsk4/tsup-config": "^4.1.0",
+    "@types/node": "^20.10.3",
     "typescript": "5.3.2",
-    "glob": "^10.3.10",
     "uvu": "^0.5.6",
-    "ycmd": "^0.8.0"
+    "ycmd": "^0.10.0"
   },
   "//": "///////////========================/////////========================/////////========================/////////",
   "prettier": "@lskjs/eslint-config/prettier",
@@ -48,7 +38,10 @@
     "extends": "@lskjs/eslint-config"
   },
   "ycmd": {
-    "extends": "@lskjs/ycmd-config"
+    "scripts": [
+      "./scripts",
+      "./node_modules/ycmd/scripts"
+    ]
   },
   "files": [
     "lib",
@@ -61,12 +54,12 @@
   "exports": {
     ".": {
       "import": "./lib/index.js",
-      "types": "./lib/index.d.ts",
+      "types": "./cjs/index.d.ts",
       "default": "./cjs/index.js"
     },
     "./*": {
       "import": "./lib/*.js",
-      "types": "./lib/*.d.ts",
+      "types": "./cjs/*.d.ts",
       "default": "./cjs/*.js"
     }
   },
